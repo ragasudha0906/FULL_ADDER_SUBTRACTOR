@@ -33,20 +33,43 @@ A full subtractor is a combinational circuit that performs subtraction involving
 ![image](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/154305477/02b24f51-ab51-4304-9ad6-7b81ffc1ead5)
 
 Diff = A ⊕ B ⊕ Bin 
-
 Borrow out = A'Bin + A'B + BBin
+
 
 **Truthtable**
 
+![Screenshot 2024-12-10 141656](https://github.com/user-attachments/assets/a6f94ffe-5cc4-466a-b40e-833888583471)
+![Screenshot 2024-12-10 141719](https://github.com/user-attachments/assets/0fb6c224-b4c6-4f95-86ec-20591bc3fad4)
+
 **Procedure**
-
 Write the detailed procedure here
-
+1. Write the code in Quartus software by creating a new project wizard.
+2. Run the program to get output.
+3. Then open RTL viewer and download that image.
+4. Open new file with University program VWF
+5. Set end timer and execute, then download the waveform.
 **Program:**
-```
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
 Developed by:Ragasudha R  RegisterNumber:24900684*/
-module exp4(df,bo,a,b,bin);
+```
+/full adder module EXP_4(sum, cout, a, b, cin);
+output sum;
+output
+cout;
+input a;
+input b;
+input cin;
+internal nets wire sl,cl,c2;
+Instantiate logic gate primitives
+xor(sl,a,b);
+and(cl,a,b);
+xor(sum, sl, cin);
+and (c2, sl,cin);
+or (cout, c2,cl);
+endmodule
+```
+```
+module EXP_4_2 (df, bo, a, b, bin);
 output df;
 output bo;
 input a;
@@ -60,6 +83,7 @@ assign df=w1^bin;
 assign bo=w2|w3;
 endmodule
 ```
+
 
 **RTL Schematic**
 
